@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>ASI Bestsure - Phishield Cyber Cover</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .turnover-check {
+            margin: 20px 0;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #0078D7;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .submit-button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+<header>
+<h1>ASI Bestsure - Phishield Cyber Cover</h1>
+</header>
+<div class="container">
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cyber Insurance Quote Estimator</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        input[type=range] {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .output {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h2>Cyber Insurance Quote Estimator</h2>
+<label for="revenue">Company Revenue Band:</label>
+<input id="revenue" max="12" min="0" oninput="updateQuote()" step="1" type="range" value="0"/>
+<div class="output" id="revenueOutput">R0 - R10 000 000</div>
+<label for="cover">Cover Limit:</label>
+<input id="cover" max="7" min="0" oninput="updateQuote()" step="1" type="range" value="0"/>
+<div class="output" id="coverOutput">R1M Cover Limit</div>
+<h3>Estimated Quote:</h3>
+<p>Annual Premium: <span id="annualPremium">-</span></p>
+<p>Monthly Premium: <span id="monthlyPremium">-</span></p>
+<label for="mdr">Do you currently have or intend to purchase MDR Complete?</label>
+<br/>
+<input id="mdrYes" name="mdr" type="radio" value="yes"/>
+<label for="mdrYes">Yes</label>
+<input checked="" id="mdrNo" name="mdr" type="radio" value="no"/>
+<label for="mdrNo">No</label>
+<p><em>* If you have or intend to purchase MDR Complete, you may qualify for a further 15% discount.</em></p>
+
+</div>
+<script>
+        function updateQuote() {
+            const revenueBands = [
+                "R0 - R10 000 000", "R10 000 001 - R25 000 000", "R25 000 001 - R50 000 000", "R50 000 001 - R75 000 000",
+                "R75 000 001 - R100 000 000", "R100 000 001 - R150 000 000", "R150 000 001 - R200 000 000", "R200 000 001 - R250 000 000",
+                "R250 000 001 - R300 000 000", "R300 000 001 - R350 000 000", "R350 000 001 - R400 000 000", "R400 000 001 - R450 000 000",
+                "R450 000 001 - R500 000 000"
+            ];
+            
+            const coverLimits = [
+                "R1M Cover Limit", "R2.5M Cover Limit", "R5M Cover Limit", "R7.5M Cover Limit", 
+                "R10M Cover Limit", "R15M Cover Limit", "R25M Cover Limit", "R50M Cover Limit"
+            ];
+            
+            const pricingTable = [
+                [6650.40, 7619.40, 9394.20, 13249.80, 16942.20, 22960.20, 25785.60, 36291.60],
+                [9343.20, 11077.20, 14106.60, 18890.40, 22919.40, 29182.20, 32527.80, 46277.40],
+                [11638.20, 14229.00, 20012.40, 25010.40, 29416.80, 34425.00, 43431.60, 56742.60],
+                [13719.00, 18706.80, 23633.40, 27927.60, 32854.20, 39443.40, 49041.60, 64413.00],
+                [15687.60, 20155.20, 25306.20, 31171.20, 36057.00, 43686.60, 55059.60, 70410.60],
+                [18921.00, 23531.40, 27937.80, 34261.80, 38943.60, 48531.60, 60455.40, 79203.00],
+                [21562.80, 26489.40, 31314.00, 37944.00, 43574.40, 54060.00, 72522.00, 105090.60],
+                [24092.40, 29773.80, 36322.20, 42666.60, 48786.60, 59343.60, 82201.80, 123073.20],
+                [27458.40, 33935.40, 39769.80, 47634.00, 51714.00, 65076.00, 87128.40, 132304.20],
+                [30753.00, 38015.40, 44145.60, 51428.40, 56365.20, 68329.80, 91483.80, 135394.80],
+                [33833.40, 41432.40, 47674.80, 56069.40, 60873.60, 72430.20, 96063.60, 139801.20],
+                [36536.40, 44329.20, 51010.20, 59996.40, 65137.20, 76775.40, 100867.80, 146013.00],
+                [38729.40, 46991.40, 54580.20, 64188.60, 69696.60, 81375.60, 105406.80, 150827.40]
+            ];
+            
+            const revenueIndex = parseInt(document.getElementById("revenue").value, 10);
+            const coverIndex = parseInt(document.getElementById("cover").value, 10);
+            
+            document.getElementById("revenueOutput").innerText = revenueBands[revenueIndex];
+            document.getElementById("coverOutput").innerText = coverLimits[coverIndex];
+            
+            const annualPremium = pricingTable[revenueIndex][coverIndex];
+            const monthlyPremium = (annualPremium / 12).toFixed(2);
+            
+            document.getElementById("annualPremium").innerText = `R${annualPremium.toLocaleString()}`;
+            document.getElementById("monthlyPremium").innerText = `R${monthlyPremium.toLocaleString()}`;
+        }
+        
+        updateQuote();
+        function quoteNow() {
+            window.location.href = 'quote_questions.html';
+        }
+    </script>
+</body>
+</html>
+<div class="turnover-check">
+<label>
+<input name="turnover" type="checkbox">
+                My company's turnover is over R500,000,000
+            </input></label>
+</div>
+<a class="submit-button" href="https://tinyurl.com/ASIBestsureCyber">Proceed</a>
+</div>
+</body>
+</html>
